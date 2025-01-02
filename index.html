@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noobs Chat - Redesigned</title>
     <style>
@@ -17,33 +16,33 @@
         }
 
         body {
-            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
             color: #fff;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 0;
         }
 
         .chat-container {
             background: #ffffff;
             color: #333;
-            width: 100%;
-            max-width: 400px;
+            width: 60%;
+            height: 80%;
             border-radius: 16px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
         .navbar {
-            background: #4e54c8;
+            background: #2c3e50;
             color: #fff;
             padding: 20px;
             text-align: center;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
         }
 
@@ -51,63 +50,65 @@
             flex: 1;
             padding: 20px;
             overflow-y: auto;
-            background: #f4f4f9;
+            background: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .message {
-            margin-bottom: 15px;
             border-radius: 8px;
             padding: 10px 15px;
-            font-size: 14px;
-            line-height: 1.4;
+            font-size: 16px;
+            line-height: 1.5;
             max-width: 70%;
             word-wrap: break-word;
         }
 
         .message.current-user {
-            margin-left: auto;
-            background: #4e54c8;
+            align-self: flex-end;
+            background: #2c3e50;
             color: #fff;
-            text-align: right;
         }
 
         .message.other-user {
-            margin-right: auto;
-            background: #e0e0e0;
+            align-self: flex-start;
+            background: #bdc3c7;
             color: #333;
         }
 
         .input-container {
             display: flex;
             padding: 15px;
-            background: #f9f9f9;
+            background: #ecf0f1;
             border-top: 1px solid #ddd;
         }
 
         .input-container input {
             flex: 1;
-            padding: 10px;
-            font-size: 14px;
+            padding: 15px;
+            font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 8px;
             outline: none;
         }
 
         .input-container button {
-            background: #4e54c8;
+            background: #2c3e50;
             color: #fff;
             border: none;
-            padding: 10px 15px;
+            padding: 10px 20px;
             margin-left: 10px;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 700;
             border-radius: 8px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.2s;
         }
 
         .input-container button:hover {
-            background: #3d44a5;
+            background: #34495e;
+            transform: scale(1.05);
         }
 
         .profile-icon {
@@ -139,14 +140,14 @@
 
         .profile-modal p {
             margin-bottom: 10px;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .profile-modal button {
-            background: #4e54c8;
+            background: #2c3e50;
             color: #fff;
             border: none;
-            padding: 10px 15px;
+            padding: 10px 20px;
             border-radius: 8px;
             cursor: pointer;
         }
@@ -170,7 +171,7 @@
 
 <body>
     <div class="chat-container">
-        <div class="navbar">Noobs Chat</div>
+        <div class="navbar">Distributed Chat</div>
         <div class="chat-messages" id="chat-messages"></div>
         <div class="input-container">
             <input type="text" id="message" placeholder="Type your message...">
@@ -186,12 +187,12 @@
     </div>
     <div class="overlay" id="overlay" onclick="toggleProfile()"></div>
     <div class="profile-modal" id="profile-modal">
-        <p>User: <span id="profile-username">Noobs</span></p>
+        <p>User: <span id="profile-username">God</span></p>
         <button onclick="toggleProfile()">Close</button>
     </div>
 
     <script>
-        let username = "Noobs";
+        let username = "God";
 
         function sendMessage() {
             const messageInput = document.getElementById('message');
